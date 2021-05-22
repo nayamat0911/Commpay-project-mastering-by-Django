@@ -1,0 +1,59 @@
+{% extends 'layouts.html' %}
+<!--------titl----->
+{% block title %}
+    login
+{% endblock %}
+<!-------body------>
+{% block bodyblock %}
+   <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="text-center">Login Your Account</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'registration' %}">Register</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><br><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-5">
+            <div class="justify-content-center">
+              <h4 class="text-center text-info">Login Your Account</h4>
+            </div>
+            <form action="forms" method="post" role="form" class="php-email-form">
+              {% csrf_token %}  
+              <div class="form-row">
+               
+                <div class="col-lg-12 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="User Id/Email" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <small>Forgot my <a href="{% url 'forgot_password'%}">password!</a></small>
+                <div class="validate"></div>
+              </div>
+              
+              <div class="text-center"><button type="submit">Login</button></div><br>
+              <small>Don't have an account <a href="{% url 'registration'%}">Register Now!</a></small>
+            </form>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    
+{% endblock %}

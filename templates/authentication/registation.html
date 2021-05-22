@@ -1,0 +1,73 @@
+{% extends 'layouts.html' %}
+<!--------titl----->
+{% block title %}
+    login
+{% endblock %}
+<!-------body------>
+{% block bodyblock %}
+   <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="text-center">Register a new Account</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><br><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-8">
+            <div class="justify-content-center">
+              <h4 class="text-center text-info">Create an Account</h4>
+            </div>
+            <form action="forms" method="post" role="form" class="php-email-form">
+              {% csrf_token %}  
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Your Last Name" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="text" class="form-control" name="number" id="number" placeholder="Mobile Number" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Create Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Confrom Password" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="text-center"><button type="submit">Register</button></div><br>
+              <small>Allready You have an account <a href="{% url 'login'%}">login Now!</a></small>
+            </form>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    
+{% endblock %}
